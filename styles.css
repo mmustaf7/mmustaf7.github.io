@@ -6,34 +6,19 @@ body {
     background: #f9f9f9;
     color: #333;
 }
+
 header, nav, main, footer {
     padding: 20px;
     margin: 10px;
     border: 1px solid #ccc;
 }
 
-/* Navigation styling */
 nav {
     display: flex;
     gap: 10px;
     background-color: #e0e0e0;
 }
 
-/* Reset ul and li inside nav for proper layout */
-nav ul {
-    list-style-type: none;  /* Remove bullets */
-    margin: 0;              /* Remove default margin */
-    padding: 0;             /* Remove default padding */
-    display: flex;          /* Keep horizontal layout */
-    gap: 10px;              /* Same gap as nav */
-}
-
-nav ul li {
-    margin: 0;
-    padding: 0;
-}
-
-/* Style for links inside nav */
 .nav-link {
     text-decoration: none;
     padding: 5px 10px;
@@ -46,20 +31,33 @@ nav ul li {
     background-color: #cce5ff;
 }
 
-/* Main content area */
 main {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* Table styles */
+h1, h2 {
+    color: #00529B;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
 th, td {
+    border: 1px solid #aaa;
+    padding: 8px;
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 20px;
+}
+
     border: 1px solid #aaa;
     padding: 8px;
     text-align: left;
