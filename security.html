@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>DNS Security</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DNS Security</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header><h1>DNS Security</h1></header>
+<header>
   <nav>
-  <ul>
-    <li><a href="index.html" class="nav-link">Home</a></li>
-    <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-    <li><a href="security.html" class="nav-link">DNS Security</a></li>
-    <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-    <li><a href="references.html" class="nav-link">References</a></li>
-  </ul>
-</nav>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="how-it-works.html" class="nav-link">How It Works</a>
+    <a href="security.html" class="nav-link">DNS Security</a>
+    <a href="quiz.html" class="nav-link">Quiz</a>
+    <a href="references.html" class="nav-link">References</a>
+  </nav>
+</header>
+<main>
+  <h1>DNS Security</h1>
 
-    <main>
-        <p>DNS can be vulnerable to attacks such as spoofing and cache poisoning. Solutions include DNSSEC and DNS over HTTPS (DoH).</p>
-        <ul>
-            <li>DNSSEC: Adds digital signatures to DNS records</li>
-            <li>DoH: Encrypts DNS requests</li>
-        </ul>
-    </main>
-    <footer>
-        <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203</a>.</p>
-    </footer>
+  <h2>DNS Security Threats and Countermeasures</h2>
+  <p>Even though vital, DNS was never designed with security in mind. This made it vulnerable to attacks such as DNS cache poisoning, where attackers insert fake DNS information into a resolver cache. Another one is DNS spoofing, where fake responses cause users to connect to counterfeit web servers. To avoid such attacks, the industry has developed solutions like DNSSEC (Domain Name System Security Extensions) that adds digital signatures to verify information (Internet Society, 2018). Others, like DNS over HTTPS (DoH) and DNS over TLS (DoT), encrypt DNS queries so they cannot be intercepted and altered (Mozilla, 2023).</p>
+
+  <h2>Real-World Application and Market</h2>
+  <p>Private and public organizations offer DNS today with Google Public DNS (8.8.8.8), Cloudflare DNS (1.1.1.1), and Cisco's OpenDNS offering secure and faster options to ISP-provided DNS (Google, n.d.; Cloudflare, n.d.; Cisco, n.d.). They often offer extra features such as malware blocking, parental filtering, and increased privacy. Organizations also use internal DNS infrastructure for policy enforcement and performance optimization. Global DNS market continues to grow with organizations embracing cloud-native architectures and edge computing.</p>
+
+  <h2>Future Directions of DNS</h2>
+  <p>With increasing privacy and decentralization, DNS is also changing. Encrypted DNS protocols such as DoH are becoming standard, which safeguards users against ISP snooping and man-in-the-middle attacks. Blockchain-based services such as Namecoin and Ethereum Name Service (ENS) are attempting to build decentralized and censorship-resistant alternatives that are entirely under users' control (Namecoin, n.d.; ENS, n.d.). These services have the potential to transform domain registration and management. At the same time, AI and automation are also being utilized in DNS management for better security and performance.</p>
+</main>
+<footer>
+  <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank" rel="noopener noreferrer">IT 3203</a>.</p>
+</footer>
 </body>
 </html>
