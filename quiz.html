@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DNS Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .quiz-container { padding: 20px; max-width: 800px; margin: auto; }
+    .question { margin-bottom: 20px; }
+    #results { margin-top: 20px; padding: 10px; border-top: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <header><h1>DNS Self-Assessment Quiz</h1></header>
+  <nav>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="how-it-works.html" class="nav-link">How It Works</a>
+    <a href="security.html" class="nav-link">DNS Security</a>
+    <a href="quiz.html" class="nav-link">Quiz</a>
+    <a href="references.html" class="nav-link">References</a>
+  </nav>
+
+  <main class="quiz-container">
+    <form id="quizForm">
+      <div class="question">
+        <p>1. What does DNS stand for?</p>
+        <label><input type="radio" name="q1" value="a"> Dynamic Network System</label><br>
+        <label><input type="radio" name="q1" value="b"> Domain Name System</label><br>
+        <label><input type="radio" name="q1" value="c"> Digital Node Service</label>
+      </div>
+
+      <div class="question">
+        <p>2. Which server provides the final IP address in DNS resolution?</p>
+        <label><input type="radio" name="q2" value="a"> Root Server</label><br>
+        <label><input type="radio" name="q2" value="b"> TLD Server</label><br>
+        <label><input type="radio" name="q2" value="c"> Authoritative Server</label>
+      </div>
+
+      <div class="question">
+        <p>3. Which of the following is a DNS security solution? (Choose all that apply)</p>
+        <label><input type="checkbox" name="q3" value="a"> DNSSEC</label><br>
+        <label><input type="checkbox" name="q3" value="b"> DNS over HTTPS (DoH)</label><br>
+        <label><input type="checkbox" name="q3" value="c"> HTML</label>
+      </div>
+
+      <div class="question">
+        <p>4. Fill in the blank: The DNS _____ translates domain names into IP addresses.</p>
+        <input type="text" name="q4" placeholder="Your answer here">
+      </div>
+
+      <div class="question">
+        <p>5. What is the top-level domain in "example.com"?</p>
+        <label><input type="radio" name="q5" value="a"> example</label><br>
+        <label><input type="radio" name="q5" value="b"> .com</label><br>
+        <label><input type="radio" name="q5" value="c"> www</label>
+      </div>
+
+      <button type="button" onclick="gradeQuiz()">Submit</button>
+      <button type="reset">Restart Quiz</button>
+    </form>
+
+    <div id="results"></div>
+  </main>
+
+  <footer>
+    <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203</a>.</p>
+  </footer>
+
+  <script>
+    function gradeQuiz() {
+      let score = 0;
+      const total = 5;
+      const results = document.getElementById('results');
+      results.innerHTML = '';
+
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      if (q1 && q1.value === "b") score++;
+
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      if (q2 && q2.value === "c") score++;
+
+      const q3 = document.querySelectorAll('input[name="q3"]:checked');
+      const q3Values = Array.from(q3).map(el => el.value).sort();
+      if (JSON.stringify(q3Values) === JSON.stringify(["a", "b"])) score++;
+
+      const q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
+      if (q4 === "resolver") score++;
+
+      const q5 = document.querySelector('input[name="q5"]:checked');
+      if (q5 && q5.value === "b") score++;
+
+      const percent = (score / total) * 100;
+      const passFail = percent >= 60 ? "Pass ✅" : "Fail ❌";
+
+      results.innerHTML = `
+        <h3>Results:</h3>
+        <p>Score: ${score} / ${total} (${percent}%)</p>
+        <p>Result: ${passFail}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
